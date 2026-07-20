@@ -1,0 +1,26 @@
+export { ArrowLeftIcon, ArrowLeftIcon as ArrowBackIcon } from './arrow-left';
+export { ArrowRightIcon, ArrowRightIcon as ArrowForwardIcon } from './arrow-right';
+export { BadgeCheckIcon } from './badge-check';
+export { CheckIcon } from './check';
+export { ChevronLeftIcon } from './chevron-left';
+export { ChevronRightIcon } from './chevron-right';
+export { CircleCheckIcon, CircleCheckIcon as CheckCircleOutlineIcon, CircleCheckIcon as CheckCircleOutlinedIcon } from './circle-check';
+export { CirclePlusIcon } from './circle-plus';
+export { ClipboardListIcon, ClipboardListIcon as AssignmentOutlinedIcon } from './clipboard-list';
+export { CopyIcon, CopyIcon as ContentCopyIcon, CopyIcon as ContentCopyOutlinedIcon } from './copy';
+export { DownloadIcon, DownloadIcon as DownloadOutlinedIcon } from './download';
+export { ExternalLinkIcon, ExternalLinkIcon as OpenInNewOutlinedIcon } from './external-link';
+export { ListIcon, ListIcon as ViewListOutlinedIcon } from './list';
+export { LogOutIcon, LogOutIcon as LogoutOutlinedIcon } from './log-out';
+export { MenuIcon } from './menu';
+export { PaperclipIcon, PaperclipIcon as AttachFileOutlinedIcon } from './paperclip';
+export { PlusIcon, PlusIcon as AddIcon } from './plus';
+export { RefreshCwIcon, RefreshCwIcon as RefreshIcon } from './refresh-cw';
+export { SearchIcon } from './search';
+export { SendIcon, SendIcon as SendOutlinedIcon } from './send';
+export { SettingsIcon, SettingsIcon as SettingsOutlinedIcon } from './settings';
+export { Trash2Icon, Trash2Icon as DeleteOutlineIcon } from './trash-2';
+export { XIcon, XIcon as CloseIcon } from './x';
+
+export { DEFAULT_ICON_SIZE, SMALL_ICON_SIZE, hoverAnimate, iconStyle } from './animated-icon-defaults';
+export { MotionIconWrap } from './motion-icon-wrap';

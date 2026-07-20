@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leddi Prime</title>
+    <script>
+      (function () {
+        try {
+          var mode =
+            localStorage.getItem('leddi-prime-theme-mode') ||
+            localStorage.getItem('leddi-color-mode') ||
+            'light';
+          var isDark = mode === 'dark';
+          var root = document.documentElement;
+          root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+          root.style.colorScheme = isDark ? 'dark' : 'light';
+
+          var light = {
+            pageBg: '#F8F9FA',
+            surface: '#FFFFFF',
+            surface0: '#F4F6F8',
+            surface2: '#EEF1F4',
+            border: '#E8ECF0',
+            textPrimary: '#2E3162',
+            textSecondary: '#5C6B73',
+            textMuted: '#8B9AAB',
+            cardShadow: '0 1px 3px rgba(46, 49, 98, 0.06), 0 4px 16px rgba(46, 49, 98, 0.05)',
+            accent: '#071F49',
+            accentHover: '#101e69',
+            danger: '#B83A3A',
+            success: '#4A7C59',
+            warning: '#C47B24',
+          };
+          var dark = {
+            pageBg: '#090B0F',
+            surface: '#19202C',
+            surface0: '#0A0D15',
+            surface2: '#1E2535',
+            border: '#1E2535',
+            textPrimary: '#EEF1F7',
+            textSecondary: '#8B95A1',
+            textMuted: '#555E68',
+            cardShadow: 'none',
+            accent: '#2956FF',
+            accentHover: '#4169FF',
+            danger: '#F87171',
+            success: '#4ADE80',
+            warning: '#FBB740',
+          };
+          var t = isDark ? dark : light;
+          root.style.setProperty('--leddi-page-bg', t.pageBg);
+          root.style.setProperty('--leddi-surface', t.surface);
+          root.style.setProperty('--leddi-surface-0', t.surface0);
+          root.style.setProperty('--leddi-surface-2', t.surface2);
+          root.style.setProperty('--leddi-border', t.border);
+          root.style.setProperty('--leddi-text-primary', t.textPrimary);
+          root.style.setProperty('--leddi-text-secondary', t.textSecondary);
+          root.style.setProperty('--leddi-text-muted', t.textMuted);
+          root.style.setProperty('--leddi-card-shadow', t.cardShadow);
+          root.style.setProperty('--leddi-accent', t.accent);
+          root.style.setProperty('--leddi-accent-hover', t.accentHover);
+          root.style.setProperty('--leddi-danger', t.danger);
+          root.style.setProperty('--leddi-success', t.success);
+          root.style.setProperty('--leddi-warning', t.warning);
+          root.style.backgroundColor = t.pageBg;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
