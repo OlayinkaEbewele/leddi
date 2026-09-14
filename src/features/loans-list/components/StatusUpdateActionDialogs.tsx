@@ -9,39 +9,60 @@ import Typography from '@mui/material/Typography';
 import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import type { StatusUpdateRequest } from '@/api/types';
-import { riskStage1, riskStage3, textSecondary } from '@/theme/theme';
+import { tokenVars } from '@/theme/cssVars';
+import { textSecondary } from '@/theme/theme';
 import { StatusValueTag } from './StatusValueTag';
 
 const confirmButtonSx = {
-  bgcolor: riskStage1,
+  bgcolor: tokenVars.accent,
   color: '#FFFFFF',
   textTransform: 'none',
   fontWeight: 600,
   boxShadow: 'none',
   minWidth: 120,
   '&:hover': {
-    bgcolor: '#3d6849',
+    bgcolor: tokenVars.accentHover,
     boxShadow: 'none',
   },
   '&.Mui-disabled': {
-    bgcolor: 'rgba(74, 124, 89, 0.45)',
+    bgcolor: tokenVars.accent,
     color: '#FFFFFF',
+    opacity: 0.45,
   },
 } as const;
 
 const rejectButtonSx = {
   textTransform: 'none',
   fontWeight: 600,
-  borderColor: riskStage3,
-  color: riskStage3,
+  borderColor: tokenVars.danger,
+  color: tokenVars.danger,
   minWidth: 120,
   '&:hover': {
-    borderColor: riskStage3,
-    bgcolor: 'rgba(184, 58, 58, 0.04)',
+    borderColor: tokenVars.danger,
+    bgcolor: 'color-mix(in srgb, var(--leddi-danger) 12%, transparent)',
   },
   '&.Mui-disabled': {
-    borderColor: 'rgba(184, 58, 58, 0.35)',
-    color: 'rgba(184, 58, 58, 0.55)',
+    borderColor: tokenVars.danger,
+    color: tokenVars.danger,
+    opacity: 0.45,
+  },
+} as const;
+
+const deleteRequestButtonSx = {
+  textTransform: 'none',
+  fontWeight: 600,
+  borderColor: tokenVars.textMuted,
+  color: tokenVars.textMuted,
+  minWidth: 120,
+  '&:hover': {
+    borderColor: tokenVars.chipTones.riskStage3.border,
+    bgcolor: tokenVars.chipTones.riskStage3.bg,
+    color: tokenVars.chipTones.riskStage3.color,
+  },
+  '&.Mui-disabled': {
+    borderColor: tokenVars.textMuted,
+    color: tokenVars.textMuted,
+    opacity: 0.45,
   },
 } as const;
 
@@ -186,4 +207,4 @@ export function StatusUpdateRejectDialog({
   );
 }
 
-export { confirmButtonSx, rejectButtonSx };
+export { confirmButtonSx, rejectButtonSx, deleteRequestButtonSx };

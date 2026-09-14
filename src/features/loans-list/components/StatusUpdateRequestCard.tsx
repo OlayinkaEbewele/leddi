@@ -12,12 +12,12 @@ import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 import type { StatusUpdateRequest } from '@/api/types';
 import { ArrowRightIcon, CheckIcon, CopyIcon } from '@/components/animate-ui-icons';
+import { tokenVars } from '@/theme/cssVars';
 import {
   borderSubtle,
   cardRadius,
   cardShadow,
   pageBackground,
-  riskStage1,
   surface,
   textMuted,
   textPrimary,
@@ -153,6 +153,9 @@ export function StatusUpdateRequestCard({ request, onConfirm, onReject }: Status
       </Box>
 
       <Stack direction="row" spacing={1.5}>
+        <Button variant="outlined" fullWidth onClick={onReject} sx={rejectButtonSx}>
+          {t('statusUpdates.actions.reject')}
+        </Button>
         <Button
           variant="contained"
           fullWidth
@@ -161,9 +164,6 @@ export function StatusUpdateRequestCard({ request, onConfirm, onReject }: Status
           sx={confirmButtonSx}
         >
           {t('statusUpdates.actions.confirm')}
-        </Button>
-        <Button variant="outlined" fullWidth onClick={onReject} sx={rejectButtonSx}>
-          {t('statusUpdates.actions.reject')}
         </Button>
       </Stack>
     </Paper>
@@ -209,10 +209,10 @@ export function StatusUpdatesGridToggle({
           onClick={() => onChange(2)}
           aria-label={t('statusUpdates.grid.twoByTwo')}
           sx={{
-            border: `1px solid ${columns === 2 ? riskStage1 : borderSubtle}`,
+            border: `1px solid ${columns === 2 ? tokenVars.accent : borderSubtle}`,
             borderRadius: '8px',
-            bgcolor: columns === 2 ? 'rgba(74, 124, 89, 0.08)' : 'transparent',
-            color: columns === 2 ? riskStage1 : textMuted,
+            bgcolor: columns === 2 ? 'color-mix(in srgb, var(--leddi-accent) 12%, transparent)' : 'transparent',
+            color: columns === 2 ? tokenVars.accent : textMuted,
           }}
         >
           <GridViewOutlinedIcon fontSize="small" />
@@ -224,10 +224,10 @@ export function StatusUpdatesGridToggle({
           onClick={() => onChange(3)}
           aria-label={t('statusUpdates.grid.threeByTwo')}
           sx={{
-            border: `1px solid ${columns === 3 ? riskStage1 : borderSubtle}`,
+            border: `1px solid ${columns === 3 ? tokenVars.accent : borderSubtle}`,
             borderRadius: '8px',
-            bgcolor: columns === 3 ? 'rgba(74, 124, 89, 0.08)' : 'transparent',
-            color: columns === 3 ? riskStage1 : textMuted,
+            bgcolor: columns === 3 ? 'color-mix(in srgb, var(--leddi-accent) 12%, transparent)' : 'transparent',
+            color: columns === 3 ? tokenVars.accent : textMuted,
           }}
         >
           <ViewModuleOutlinedIcon fontSize="small" />

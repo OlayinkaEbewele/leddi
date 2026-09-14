@@ -12,7 +12,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { statusUpdatesApi } from '@/api';
 import type { StatusUpdateRequest, StatusUpdatesListQuery } from '@/api/types';
 import { RefreshCwIcon, SearchIcon } from '@/components/animate-ui-icons';
-import { actionPrimary, borderSubtle, pageBackground, textSecondary } from '@/theme/theme';
+import { tokenVars } from '@/theme/cssVars';
+import { borderSubtle, pageBackground, textSecondary } from '@/theme/theme';
 import {
   usePendingStatusUpdatesQuery,
   useStatusAuditTrailQuery,
@@ -41,7 +42,7 @@ type PendingAction =
   | null;
 
 function pageSizeForColumns(columns: 2 | 3): number {
-  return columns * 2;
+  return columns * 3;
 }
 
 export function StatusUpdatesTabPanel({
@@ -54,7 +55,7 @@ export function StatusUpdatesTabPanel({
   const [subTab, setSubTab] = useState(0);
   const [acquireIdSearch, setAcquireIdSearch] = useState('');
   const [appliedAcquireId, setAppliedAcquireId] = useState('');
-  const [gridColumns, setGridColumns] = useState<2 | 3>(2);
+  const [gridColumns, setGridColumns] = useState<2 | 3>(3);
   const [pendingAction, setPendingAction] = useState<PendingAction>(null);
   const [actingOnId, setActingOnId] = useState<string | null>(null);
 
@@ -225,11 +226,11 @@ export function StatusUpdatesTabPanel({
           },
           '& .MuiTab-root.Mui-selected': {
             color: '#FFFFFF !important',
-            bgcolor: `${actionPrimary} !important`,
+            bgcolor: `${tokenVars.accent} !important`,
           },
           '& .MuiTab-root.Mui-selected:hover': {
             color: '#FFFFFF !important',
-            bgcolor: `${actionPrimary} !important`,
+            bgcolor: `${tokenVars.accentHover} !important`,
           },
           '& .MuiTabs-indicator': { display: 'none' },
         }}

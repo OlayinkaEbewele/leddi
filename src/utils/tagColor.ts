@@ -19,14 +19,14 @@ const TAG_PALETTE_LIGHT: TagColorStyle[] = [
 ];
 
 const TAG_PALETTE_DARK: TagColorStyle[] = [
-  { bg: '#0D2818', color: '#4ADE80', border: '#14532D' },
-  { bg: '#0D1B3E', color: '#60A5FA', border: '#1E3A6E' },
-  { bg: '#2D1A00', color: '#FBB740', border: '#78350F' },
-  { bg: '#1A0D28', color: '#C084FC', border: '#4C1D95' },
-  { bg: '#2D0A0A', color: '#F87171', border: '#7F1D1D' },
-  { bg: '#0D2818', color: '#4ADE80', border: '#14532D' },
-  { bg: '#2D1A00', color: '#FBB740', border: '#78350F' },
-  { bg: '#0D1B3E', color: '#60A5FA', border: '#1E3A6E' },
+  { bg: 'rgba(34, 197, 94, 0.15)', color: '#86EFAC', border: 'rgba(34, 197, 94, 0.25)' },
+  { bg: 'rgba(59, 130, 246, 0.15)', color: '#93C5FD', border: 'rgba(59, 130, 246, 0.25)' },
+  { bg: 'rgba(245, 158, 11, 0.15)', color: '#FCD34D', border: 'rgba(245, 158, 11, 0.25)' },
+  { bg: 'rgba(168, 85, 247, 0.15)', color: '#D8B4FE', border: 'rgba(168, 85, 247, 0.25)' },
+  { bg: 'rgba(239, 68, 68, 0.15)', color: '#FCA5A5', border: 'rgba(239, 68, 68, 0.25)' },
+  { bg: 'rgba(20, 184, 166, 0.15)', color: '#5EEAD4', border: 'rgba(20, 184, 166, 0.25)' },
+  { bg: 'rgba(234, 179, 8, 0.15)', color: '#FDE68A', border: 'rgba(234, 179, 8, 0.25)' },
+  { bg: 'rgba(14, 165, 233, 0.15)', color: '#7DD3FC', border: 'rgba(14, 165, 233, 0.25)' },
 ];
 
 function hashString(value: string): number {

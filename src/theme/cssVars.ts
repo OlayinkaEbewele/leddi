@@ -109,5 +109,5 @@ export function applyDocumentThemeAttrs(mode: 'light' | 'dark'): void {
   root.setAttribute('data-theme', mode);
   root.style.colorScheme = mode;
   root.style.backgroundColor =
-    mode === 'dark' ? 'var(--leddi-page-bg, #090B0F)' : 'var(--leddi-page-bg, #F8F9FA)';
+    mode === 'dark' ? 'var(--leddi-page-bg, #0F172A)' : 'var(--leddi-page-bg, #F8FAFC)';
 }

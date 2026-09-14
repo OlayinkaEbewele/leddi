@@ -203,7 +203,7 @@ function buildPinnedRightSx(fields: string[], isDark: boolean): Record<string, o
       right: 0,
       zIndex: 2,
       borderLeft: `1px solid ${borderSubtle}`,
-      boxShadow: '-4px 0 8px rgba(46, 49, 98, 0.06)',
+      boxShadow: isDark ? 'none' : '-4px 0 8px rgba(46, 49, 98, 0.06)',
       bgcolor: `${surface} !important`,
     },
     [pinnedHeaderSelectors.join(', ')]: {
@@ -211,7 +211,7 @@ function buildPinnedRightSx(fields: string[], isDark: boolean): Record<string, o
       right: 0,
       zIndex: 3,
       borderLeft: `1px solid ${borderSubtle}`,
-      boxShadow: '-4px 0 8px rgba(46, 49, 98, 0.06)',
+      boxShadow: isDark ? 'none' : '-4px 0 8px rgba(46, 49, 98, 0.06)',
       bgcolor: `${pageBackground} !important`,
     },
     [pinnedCellHoverSelectors.join(', ')]: {

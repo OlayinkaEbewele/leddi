@@ -23,12 +23,12 @@ export const riskStage2 = '#C47B24';
 export const riskStage3 = '#B83A3A';
 export const negativeDelta = '#C97B7B';
 
-export const sidebarBg = brandBlue;
-export const sidebarActiveBg = '#0D1E6B';
-export const sidebarHoverBg = 'rgba(36, 66, 60, 0.55)';
-export const sidebarText = '#E8F4F8';
-export const sidebarTextMuted = '#8BB8CC';
-export const sidebarBorder = 'rgba(255, 255, 255, 0.1)';
+export const sidebarBg = '#1E40AF';
+export const sidebarActiveBg = '#2563EB';
+export const sidebarHoverBg = 'rgba(255, 255, 255, 0.12)';
+export const sidebarText = '#FFFFFF';
+export const sidebarTextMuted = 'rgba(255, 255, 255, 0.75)';
+export const sidebarBorder = 'rgba(255, 255, 255, 0.16)';
 
 export const cardRadius = 14;
 export const sidebarWidthExpanded = 248;

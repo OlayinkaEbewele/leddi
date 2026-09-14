@@ -14,7 +14,7 @@ import { LoansLocalFilters } from './components/LoansLocalFilters';
 import { LoansTabPanel } from './components/LoansTabPanel';
 import { PaymentNoticesTabPanel } from './components/PaymentNoticesTabPanel';
 import { PlaceholderTabPanel } from './components/PlaceholderTabPanel';
-import { PrimeTabStrip } from './components/PrimeTabStrip';
+import { PRIME_TAB_KEYS } from './components/PrimeTabStrip';
 import { StatusUpdatesTabPanel } from './components/StatusUpdatesTabPanel';
 import { useLoansQuery } from './hooks/useLoansQuery';
 import { applyDashboardBucketParams, resolveTabFromSearchParam } from './utils/loansListUrlParams';
@@ -24,6 +24,10 @@ import {
   type GlobalFiltersState,
   type LoansLocalFiltersState,
 } from './types/filters';
+
+function pageSizeForPrimeTab(index: number): number {
+  return index === 1 || index === 4 ? 9 : 11;
+}
 
 export function LoansListPage() {
   const { t } = useTranslation();
@@ -53,16 +57,20 @@ export function LoansListPage() {
     return applied.localFilters;
   });
 
+  const [paginationModel, setPaginationModel] = useState<GridPaginationModel>(() => ({
+    page: 0,
+    pageSize: pageSizeForPrimeTab(resolveTabFromSearchParam(searchParams.get('activeTab'))),
+  }));
+
   useEffect(() => {
     const search = searchParams.get('search');
     if (search) {
       setLoansLocalFilters((prev) => ({ ...prev, searchTerm: search, searchBy: 'customer' }));
     }
 
-    const activeTab = searchParams.get('activeTab');
-    if (activeTab) {
-      setTab(resolveTabFromSearchParam(activeTab));
-    }
+    const nextTab = resolveTabFromSearchParam(searchParams.get('activeTab'));
+    setTab(nextTab);
+    setPaginationModel({ page: 0, pageSize: pageSizeForPrimeTab(nextTab) });
 
     const bucket = searchParams.get('bucket');
     if (bucket) {
@@ -74,11 +82,6 @@ export function LoansListPage() {
       );
     }
   }, [searchParams]);
-
-  const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
-    page: 0,
-    pageSize: 11,
-  });
 
   const loansQuery = useMemo(
     () => ({
@@ -115,14 +118,6 @@ export function LoansListPage() {
     setPaginationModel((prev) => ({ ...prev, page: 0 }));
   };
 
-  const handleTabChange = (index: number) => {
-    setTab(index);
-    setPaginationModel({
-      page: 0,
-      pageSize: index === 4 ? 4 : 11,
-    });
-  };
-
   const placeholderTabKey =
     tab === 2
       ? 'PTP'
@@ -139,16 +134,10 @@ export function LoansListPage() {
       <PrimeTopBar />
 
       <Typography variant="h5" gutterBottom>
-        {t('loans.title')}
+        {t(`loans.tabs.${PRIME_TAB_KEYS[tab]}`)}
       </Typography>
 
       <GlobalFilterBar value={globalFilters} onChange={handleGlobalFiltersChange} />
-
-      <PrimeTabStrip
-        value={tab}
-        onChange={handleTabChange}
-        tabCounts={{ loans: data?.totalCount }}
-      />
 
       {tab === 0 && (
         <>

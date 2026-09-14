@@ -1,4 +1,3 @@
-import RefreshIcon from '@mui/icons-material/Refresh';
 import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -126,37 +125,5 @@ export function PaymentNoticesLocalFilters({
         </Select>
       </FormControl>
     </Box>
-  );
-}
-
-interface PaymentNoticesTableToolbarProps {
-  onAddRequest: () => void;
-  onReload: () => void;
-  isReloading?: boolean;
-}
-
-export function PaymentNoticesTableToolbar({
-  onAddRequest,
-  onReload,
-  isReloading,
-}: PaymentNoticesTableToolbarProps) {
-  const { t } = useTranslation();
-
-  return (
-    <>
-      <Box sx={{ flex: 1 }} />
-      <Button variant="contained" size="small" onClick={onAddRequest}>
-        {t('paymentNotices.actions.addRequest')}
-      </Button>
-      <Button
-        variant="outlined"
-        size="small"
-        startIcon={<RefreshIcon />}
-        onClick={onReload}
-        disabled={isReloading}
-      >
-        {t('loans.reload')}
-      </Button>
-    </>
   );
 }

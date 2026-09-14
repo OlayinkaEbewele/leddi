@@ -276,7 +276,13 @@ export function Sidebar({ collapsed, onToggleCollapsed }: SidebarProps) {
                   borderLeft: active && isDark ? `3px solid ${dm.sidebarActiveBorder}` : '3px solid transparent',
                   '&.Mui-selected': {
                     bgcolor: navActiveBg,
-                    color: navText,
+                    color: isDark ? navText : '#FFFFFF',
+                    '&:hover': {
+                      bgcolor: navActiveBg,
+                    },
+                  },
+                  '&.Mui-selected .MuiListItemIcon-root': {
+                    color: isDark ? navText : '#FFFFFF',
                   },
                   '&:hover': { bgcolor: navHoverBg },
                 }}
@@ -285,7 +291,7 @@ export function Sidebar({ collapsed, onToggleCollapsed }: SidebarProps) {
                   sx={{
                     minWidth: collapsed ? 0 : 36,
                     justifyContent: 'center',
-                    color: active ? navText : navTextMuted,
+                    color: active ? (isDark ? navText : '#FFFFFF') : navTextMuted,
                   }}
                 >
                   {item.icon}
@@ -295,7 +301,11 @@ export function Sidebar({ collapsed, onToggleCollapsed }: SidebarProps) {
                     primary={t(item.labelKey)}
                     slotProps={{
                       primary: {
-                        sx: { fontSize: '0.8125rem', fontWeight: active ? 700 : 600, color: active ? navText : navTextMuted },
+                        sx: {
+                          fontSize: '0.8125rem',
+                          fontWeight: active ? 700 : 600,
+                          color: active ? (isDark ? navText : '#FFFFFF') : navTextMuted,
+                        },
                       },
                     }}
                   />

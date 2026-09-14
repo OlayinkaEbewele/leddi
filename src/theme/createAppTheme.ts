@@ -211,8 +211,28 @@ export function createAppTheme(mode: PaletteMode, tokens: DesignTokens) {
           },
         },
       },
+      MuiListItemButton: {
+        styleOverrides: {
+          root: {
+            borderRadius: 10,
+            '&:hover': {
+              backgroundColor: isDark ? tokens.surface2 : undefined,
+            },
+          },
+        },
+      },
+      MuiDivider: {
+        styleOverrides: {
+          root: {
+            borderColor: tokens.borderSubtle,
+          },
+        },
+      },
       MuiTableCell: {
         styleOverrides: {
+          root: {
+            borderColor: tokens.borderSubtle,
+          },
           head: {
             backgroundColor: tokens.surface0,
             color: isDark ? tokens.textSecondary : tokens.textMuted,
@@ -221,6 +241,42 @@ export function createAppTheme(mode: PaletteMode, tokens: DesignTokens) {
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
           },
+        },
+      },
+      MuiAlert: {
+        styleOverrides: {
+          standardError: isDark
+            ? {
+                backgroundColor: dm.dangerBg,
+                color: dm.danger,
+                border: `1px solid ${dm.dangerBorder}`,
+                '& .MuiAlert-icon': { color: dm.danger },
+              }
+            : undefined,
+          standardSuccess: isDark
+            ? {
+                backgroundColor: dm.successBg,
+                color: dm.success,
+                border: `1px solid ${dm.successBorder}`,
+                '& .MuiAlert-icon': { color: dm.success },
+              }
+            : undefined,
+          standardWarning: isDark
+            ? {
+                backgroundColor: dm.warningBg,
+                color: dm.warning,
+                border: `1px solid ${dm.warningBorder}`,
+                '& .MuiAlert-icon': { color: dm.warning },
+              }
+            : undefined,
+          standardInfo: isDark
+            ? {
+                backgroundColor: dm.infoBg,
+                color: dm.info,
+                border: `1px solid ${dm.infoBorder}`,
+                '& .MuiAlert-icon': { color: dm.info },
+              }
+            : undefined,
         },
       },
       MuiTextField: {
@@ -234,13 +290,13 @@ export function createAppTheme(mode: PaletteMode, tokens: DesignTokens) {
               backgroundColor: isDark ? tokens.surface0 : tokens.surface,
               color: tokens.textPrimary,
               '& fieldset': {
-                borderColor: tokens.borderSubtle,
+                borderColor: isDark ? tokens.borderSubtle : '#E8ECF0',
               },
               '&:hover fieldset': {
-                borderColor: isDark ? tokens.accent : tokens.textMuted,
+                borderColor: isDark ? tokens.accent : '#8B9AAB',
               },
               '&.Mui-focused fieldset': {
-                borderColor: isDark ? tokens.accent : tokens.textPrimary,
+                borderColor: isDark ? tokens.accent : '#2E3162',
               },
             },
             '& .MuiInputLabel-root': {
@@ -258,10 +314,13 @@ export function createAppTheme(mode: PaletteMode, tokens: DesignTokens) {
           root: {
             backgroundColor: isDark ? tokens.surface0 : tokens.surface,
             '& fieldset': {
-              borderColor: tokens.borderSubtle,
+              borderColor: isDark ? tokens.borderSubtle : '#E8ECF0',
             },
             '&:hover fieldset': {
-              borderColor: isDark ? tokens.accent : tokens.textMuted,
+              borderColor: isDark ? tokens.accent : '#8B9AAB',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: isDark ? tokens.accent : '#2E3162',
             },
           },
         },
@@ -269,7 +328,7 @@ export function createAppTheme(mode: PaletteMode, tokens: DesignTokens) {
       MuiToggleButtonGroup: {
         styleOverrides: {
           root: {
-            backgroundColor: isDark ? tokens.surface2 : '#EEF1F4',
+            backgroundColor: isDark ? tokens.surface0 : '#EEF1F4',
             borderRadius: 8,
             padding: 2,
           },
@@ -287,22 +346,18 @@ export function createAppTheme(mode: PaletteMode, tokens: DesignTokens) {
             padding: '4px 10px',
             '&.Mui-selected': {
               backgroundColor: tokens.accent,
-              color: isDark ? tokens.textPrimary : '#FFFFFF',
+              color: '#FFFFFF',
               boxShadow: 'none',
               '&:hover': {
                 backgroundColor: tokens.accentHover,
               },
             },
             '&:not(.Mui-selected)': {
-              backgroundColor: isDark ? tokens.surface2 : 'transparent',
+              backgroundColor: 'transparent',
+              '&:hover': {
+                backgroundColor: isDark ? tokens.surface2 : undefined,
+              },
             },
-          },
-        },
-      },
-      MuiListItemButton: {
-        styleOverrides: {
-          root: {
-            borderRadius: 10,
           },
         },
       },
@@ -334,15 +389,36 @@ export function createAppTheme(mode: PaletteMode, tokens: DesignTokens) {
           paper: {
             backgroundColor: tokens.surface,
             backgroundImage: 'none',
+            boxShadow: isDark ? 'none' : undefined,
           },
         },
       },
       MuiMenu: {
         styleOverrides: {
           paper: {
-            backgroundColor: tokens.surface,
+            backgroundColor: isDark ? tokens.surface2 : tokens.surface,
             backgroundImage: 'none',
             border: `1px solid ${tokens.borderSubtle}`,
+            boxShadow: isDark ? 'none' : undefined,
+          },
+        },
+      },
+      MuiPopover: {
+        styleOverrides: {
+          paper: {
+            backgroundColor: isDark ? tokens.surface2 : tokens.surface,
+            backgroundImage: 'none',
+            border: `1px solid ${tokens.borderSubtle}`,
+            boxShadow: isDark ? 'none' : undefined,
+          },
+        },
+      },
+      MuiTooltip: {
+        styleOverrides: {
+          tooltip: {
+            backgroundColor: isDark ? tokens.surface2 : undefined,
+            color: isDark ? tokens.textPrimary : undefined,
+            border: isDark ? `1px solid ${tokens.borderSubtle}` : undefined,
           },
         },
       },

@@ -3,9 +3,9 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
+import { tokenVars } from '@/theme/cssVars';
 import {
   borderSubtle,
-  dashboardGreen,
   pageBackground,
   surface,
   textMuted,
@@ -111,13 +111,13 @@ function PaginationButton({
         fontWeight: 600,
         textTransform: 'none',
         borderRadius: '8px',
-        border: `1px solid ${active ? dashboardGreen : borderSubtle}`,
-        bgcolor: active ? dashboardGreen : surface,
+        border: `1px solid ${active ? tokenVars.accent : borderSubtle}`,
+        bgcolor: active ? tokenVars.accent : surface,
         color: active ? '#fff' : textMuted,
         boxShadow: 'none',
         '&:hover': {
-          bgcolor: active ? dashboardGreen : surface,
-          borderColor: active ? dashboardGreen : borderSubtle,
+          bgcolor: active ? tokenVars.accentHover : surface,
+          borderColor: active ? tokenVars.accent : borderSubtle,
         },
         '&.Mui-disabled': {
           bgcolor: surface,
